@@ -5,12 +5,12 @@ import "fmt"
 func main() {
 	max := 2000000
 	sqrt := 1414
-	var numbers = make([]int, max)
+	numbers := make([]int, max)
 	for i, _ := range numbers {
 		numbers[i] = i
 	}
 
-	var factor = make([]int, sqrt)
+	factor := make([]int, sqrt)
 	numbers[1] = 0
 	for i, _ := range factor[2:] {
 		if i < 2 || numbers[i] == 0 {
