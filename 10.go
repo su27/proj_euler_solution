@@ -1,10 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	max := 2000000
-	sqrt := 1414
+	const max = 2000000
+	sqrt := int(math.Floor(math.Sqrt(max)))
 	numbers := make([]int, max)
 	for i, _ := range numbers {
 		numbers[i] = i

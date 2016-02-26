@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	//"math"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	grid := `08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+	const grid = `08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -36,35 +35,28 @@ func main() {
 		}
 	}
 
-	var max, res int
+	max := 0
 	for i := 0; i <= 19; i++ {
 		for j := 0; j <= 19; j++ {
 
 			if j <= 16 {
-				res = m[i][j] * m[i][j+1] * m[i][j+2] * m[i][j+3]
-				if res > max {
-					max = res
+				if r := m[i][j] * m[i][j+1] * m[i][j+2] * m[i][j+3]; r > max {
+					max = r
 				}
 			}
-
 			if i <= 16 {
-				res = m[i][j] * m[i+1][j] * m[i+2][j] * m[i+3][j]
-				if res > max {
-					max = res
+				if r := m[i][j] * m[i+1][j] * m[i+2][j] * m[i+3][j]; r > max {
+					max = r
 				}
 			}
-
 			if j <= 16 && i <= 16 {
-				res = m[i][j] * m[i+1][j+1] * m[i+2][j+2] * m[i+3][j+3]
-				if res > max {
-					max = res
+				if r := m[i][j] * m[i+1][j+1] * m[i+2][j+2] * m[i+3][j+3]; r > max {
+					max = r
 				}
 			}
-
 			if i >= 3 && j <= 16 {
-				res = m[i][j] * m[i-1][j+1] * m[i-2][j+2] * m[i-3][j+3]
-				if res > max {
-					max = res
+				if r := m[i][j] * m[i-1][j+1] * m[i-2][j+2] * m[i-3][j+3]; r > max {
+					max = r
 				}
 			}
 		}
