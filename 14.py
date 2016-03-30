@@ -50,3 +50,4 @@ if __name__ == '__main__':
     st = time.time()
     main()
     print 'time:', time.time() - st
+    # print process(73)
